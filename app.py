@@ -23,7 +23,7 @@ except ModuleNotFoundError:
         "[ERROR] tkinter est introuvable. Installez le paquet système python3-tk puis relancez Kali Control Hub.",
         file=sys.stderr,
     )
-    raise SystemExit(1)
+    sys.exit(1)
 
 
 @dataclass(frozen=True)
