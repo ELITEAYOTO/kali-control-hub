@@ -1,82 +1,54 @@
 # Kali Control Hub
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.x-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Kali%20%2F%20Debian-like-black.svg)
+![Version](https://img.shields.io/badge/version-v1.0.0-green.svg)
+
 Kali Control Hub est une application desktop légère en **Python + tkinter** pour centraliser la gestion d'outils Linux/Kali depuis une interface unique.
 
-Le hub permet de :
-- vérifier si un outil est installé,
-- l'installer si absent,
-- le lancer (GUI ou CLI),
-- afficher les logs dans une console intégrée.
-
 ## Fonctionnalités
-
 - Interface dark moderne sous tkinter.
 - Outils classés par catégories (System, Dev, Cyber, Apps).
 - Vérification d'installation par outil.
 - Installation en un clic (avec logs).
-- Lancement GUI direct.
-- Lancement CLI dans terminal avec fallback robuste.
-- Aide CLI contextuelle quand aucun argument n'est fourni (pour certains outils).
-- Console intégrée colorée (`INFO`, `OK`, `ERREUR`, `CMD`).
-- Boutons globaux : refresh, effacer console, ouvrir terminal.
+- Lancement GUI/CLI.
+- Console intégrée.
 
-## Captures d'écran
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/86f1ae87-5109-4552-bf05-7c815149aafa" />
-
-
-### Vue principale
-`docs/screenshots/main.png`
-
-### Console intégrée
-`docs/screenshots/console.png`
-
-### Onglets outils
-`docs/screenshots/tabs.png`
-
-## Installation (Kali / Debian-like)
-
-### 1) Cloner le projet
-
+## Installation one-liner (recommandé)
 ```bash
-git clone https://github.com/<your-username>/kali-control-hub.git
-cd kali-control-hub
+curl -fsSL https://raw.githubusercontent.com/ELITEAYOTO/kali-control-hub/main/install.sh | bash
 ```
 
-### 2) Lancer le script d'installation système
+### Ce que fait l’installation
+- Installe les dépendances système manquantes
+- Copie l’app dans `/opt/kali-control-hub`
+- Crée un venv Python
+- Installe les dépendances Python
+- Crée la commande globale `kali-control-hub`
+- Crée un `.desktop` global + raccourci Desktop utilisateur (si détecté)
 
+## Lancer
 ```bash
+kali-control-hub
+```
+
+## Désinstaller
+```bash
+sudo /opt/kali-control-hub/uninstall.sh
+```
+
+## Installation manuelle (optionnel)
+```bash
+git clone https://github.com/ELITEAYOTO/kali-control-hub.git
+cd kali-control-hub
 chmod +x install.sh
 ./install.sh
 ```
 
-### 3) (Optionnel) Créer un environnement virtuel Python
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-## Lancement
-
-```bash
-python3 app.py
-```
-
-## Structure du projet
-
-```text
-kali-control-hub/
-├── app.py
-├── install.sh
-├── requirements.txt
-├── README.md
-├── LICENSE
-└── .gitignore
-```
+## Proton VPN (CLI uniquement)
+Le projet vise l’usage CLI pour Proton VPN (pas GNOME forcé).  
+Si nécessaire, installe une version CLI selon disponibilité des dépôts.
 
 ## Licence
-
-Ce projet est distribué sous licence **MIT**.  
-Voir le fichier [LICENSE](LICENSE).
+MIT — voir [LICENSE](LICENSE).
