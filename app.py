@@ -9,13 +9,21 @@ from __future__ import annotations
 import shlex
 import shutil
 import subprocess
+import sys
 import threading
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Callable, Dict, List, Optional, Tuple
 
-import tkinter as tk
-from tkinter import messagebox, ttk
+try:
+    import tkinter as tk
+    from tkinter import messagebox, ttk
+except ModuleNotFoundError:
+    print(
+        "[ERROR] tkinter est introuvable. Installez le paquet système python3-tk puis relancez Kali Control Hub.",
+        file=sys.stderr,
+    )
+    sys.exit(1)
 
 
 @dataclass(frozen=True)
